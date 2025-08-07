@@ -1,13 +1,12 @@
 "use client";
 interface ButtonProps {
     label: string
-    link: string
 }
 
 
-export default function ButtonType3 ({ label,link }: ButtonProps) {
+export default function ButtonType3 ({ label, }: ButtonProps) {
     const HandleClick = () => {
-        
+        // window.open(link, "_blank");
     }
     return (
         <>
