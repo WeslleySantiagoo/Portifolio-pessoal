@@ -7,7 +7,7 @@ import Footer from "@/components/molecule/Footer"
 
 export default function Home() {
   return (
-    <div className="bg-[url('/waves.svg')] bg-no-repeat py-4">
+    <div className="md:bg-[url('/waves.svg')] bg-none bg-no-repeat bg-[top_right]">
       <Header/>
       <Hero/>
       <Projects/>

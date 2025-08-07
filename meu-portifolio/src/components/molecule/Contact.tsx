@@ -4,7 +4,7 @@ import ButtonType3 from "@/components/atom/Button3"
 export default function Contact () {
     return (
         <a id="Contato" className="py-5 pb-10 flex justify-center">
-          <div className="flex flex-col w-1/2 h-auto">
+          <div className="flex flex-col lg:w-1/2 md:w-7/10 w-9/10 h-auto">
             <div className="relative inline-block">
                 <div className="absolute right-1 top-1 w-full h-full bg-[#5B88A5]"></div>
                 <div className="relative flex items-center justify-center bg-[#243A69] px-4 py-2 text-2xl text-white font-poppins uppercase">

@@ -7,24 +7,24 @@ import FloatingItem from "@/components/atom/FloatingItem";
 
 export default function Hero () {
     return (
-        <section id="Hero" className="w-full h-140 justify-around items-center flex flex-row">
-          <div className="w-128 flex flex-col gap-4">
+        <section id="Hero" className="lg:px-0 w-full h-auto px-10 justify-around items-center flex flex-col md:flex-row">
+          <div className="w-128 text-center md:text-start flex flex-col gap-4">
             <h1 className="text-4xl text-[#243A69] font-bold block dark:hidden">DESENVOLVEDOR BACKEND</h1> 
             <h1 className="text-4xl text-[#5B88A5] font-bold hidden dark:block">DESENVOLVEDOR BACKEND</h1> 
-            <div>
-                <p className="text-3xl font-semibold py-0.5">
+            <div className="w-min-[380px]">
+                <p className="text-3xl text-center md:text-start font-semibold py-0.5">
                   Olá, sou Weslley Santiago
                 </p>
                 <p className="text-2xl font-poppins">
                   Sou desenvolvedor backend com foco em Python. Tenho experiência em construir aplicações robustas usando Firebase para banco de dados e autenticação, além de desenvolver interfaces com Kivy para projetos desktop e mobile.
                 </p>
-                <div className="flex flex-row justify-start gap-4">
+                <div className="flex flex-row md:justify-start justify-center gap-4">
                   <ButtonType1 label="Projetos" link="#Projects"/>
                   <ButtonType2 label="GitHub" link="https://www.github.com/WeslleySantiagoo"/>
                 </div>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative w-[450px] h-[450px] min-w-[450px] min-h-[450px] max-w-[450px] max-h-[450px]">
             <FloatingItem link="https://developer.mozilla.org/en-US/docs/Web/CSS"path="/icons/CSS.svg" alt="CSS Icon" className="absolute top-10 left-0" />
             <FloatingItem link="https://www.figma.com" path="/icons/Figma.svg" alt="Figma Icon" className="absolute right-1 bottom-20" />
             <FloatingItem link="https://firebase.google.com" path="/icons/Firebase.svg" alt="Firebase Icon" className="absolute bottom-25 left-5" />
