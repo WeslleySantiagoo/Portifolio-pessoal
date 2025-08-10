@@ -9,10 +9,8 @@ export default function ButtonType3 ({ label, }: ButtonProps) {
         // window.open(link, "_blank");
     }
     return (
-        <>
-            <div onClick={HandleClick} className="transition duration-300 ease-in-out hover:scale-105 cursor-pointer flex bg-[#5B88A5] font-poppins font-semibold text-base text-white uppercase items-center justify-around py-3 px-6 my-4">
-                {label}
-            </div>
-        </>
+        <div tabIndex={-1} draggable={false} onClick={HandleClick} className={`transition duration-300 ease-in-out cursor-pointer flex bg-[#5b88a5] font-semibold text-base text-white uppercase items-center justify-around py-3 px-6 my-4 select-none md:${"hover:scale-105"}`}>
+            {label}
+        </div>
     )
 }

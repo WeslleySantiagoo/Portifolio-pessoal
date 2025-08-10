@@ -43,7 +43,7 @@ export default function FloatingItem({ path, className, alt, link }: FloatingIte
         onClick={HandleClick}
         className={`hover:transition hover:duration-300 hove:ease-in-out hover:scale-110 cursor-pointer transition-transform duration-[3000ms] ease-in-out inline-block ${className}`}
       >
-        <Image src={path} alt={alt} width={50} height={50}/>
+        <Image draggable={false} src={path} alt={alt} width={50} height={50}/>
       </div>
   );
 }

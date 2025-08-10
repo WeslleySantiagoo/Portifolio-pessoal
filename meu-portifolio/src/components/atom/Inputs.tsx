@@ -13,7 +13,7 @@ export default function InputField({ label, example, required, long }: InputProp
 
   return (
     <>
-    <div className="font-poppins">
+    <div className="">
         <p className="pl-2 mt-2">{label} {required && <span className="text-red-600"> *</span>}</p>
         <textarea
             value={nome}

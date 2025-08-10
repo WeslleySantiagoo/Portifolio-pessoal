@@ -1,13 +1,67 @@
+"use client";
 import ButtonType1 from "@/components/atom/Button1";
 import ButtonType2 from "@/components/atom/Button2";
+import ScrollDownIndicator from "@/components/atom/ScrollDownIndicator";
 import Image from "next/image";
 import Weslley from "@/assets/WeslleyPNG.svg"
 import FloatingItem from "@/components/atom/FloatingItem";
+import { useEffect, useState } from "react";
+import { ArrowBigDown } from "lucide-react";
 
 
 export default function Hero () {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+      const checkScreen = () => {
+          setIsMobile(window.innerWidth <= 768); // até 768px é "mobile"
+      };
+
+      checkScreen(); // verifica na montagem
+      window.addEventListener("resize", checkScreen);
+
+      return () => {
+          window.removeEventListener("resize", checkScreen);
+      };
+  }, []);
+
     return (
-        <section id="Hero" className="lg:px-0 w-full h-auto px-10 justify-around items-center flex flex-col md:flex-row">
+      <div>
+        {isMobile ? (
+          <section id="Hero" className="py-2 w-screen h-auto justify-around items-center flex flex-col">
+            <div className="w-auto text-2xl text-center flex gap-4">
+              <h1 className="text-[#243A69] font-bold block dark:hidden">DESENVOLVEDOR BACKEND</h1> 
+              <h1 className="text-[#5B88A5] font-bold hidden dark:block">DESENVOLVEDOR BACKEND</h1>
+            </div>
+            <div className="flex flex-col text-center pt-2 px-3 h-165">
+                <p className="text-xl font-semibold pb-1">
+                  Olá, sou Weslley Santiago
+                </p>
+                <p className="text-lg font-merriweather mx-10">
+                  Desenvolvedor backend com foco em Python. Tenho experiência em construir aplicações robustas usando Firebase para banco de dados e autenticação, além de desenvolver interfaces com Kivy para projetos desktop e mobile.
+                </p>
+                <div className="flex flex-row justify-center pb-0">
+                  <ButtonType1 label="Projetos" scale="75"/>
+                  <ButtonType2 label="GitHub" link="https://www.github.com/WeslleySantiagoo" scale="75"/>
+                </div>
+                <div className="mt-0 relative w-[450px] h-[450px] min-w-[450px] min-h-[450px] max-w-[450px] max-h-[450px] scale-75 origin-top mx-auto">
+                  <FloatingItem link="https://developer.mozilla.org/en-US/docs/Web/CSS"path="/icons/CSS.svg" alt="CSS Icon" className="absolute top-10 left-0" />
+                  <FloatingItem link="https://www.figma.com" path="/icons/Figma.svg" alt="Figma Icon" className="absolute right-1 bottom-20" />
+                  <FloatingItem link="https://firebase.google.com" path="/icons/Firebase.svg" alt="Firebase Icon" className="absolute bottom-25 left-5" />
+                  <FloatingItem link="https://developer.mozilla.org/en-US/docs/Web/HTML" path="/icons/Html.svg" alt="HTML Icon" className="absolute bottom-50 right-5"/>
+                  <FloatingItem link="https://developer.mozilla.org/en-US/docs/Web/JavaScript" path="/icons/Javascript.svg" alt="JavaScript Icon" className="absolute top-40 left-5"/>
+                  <FloatingItem link="https://kivymd.readthedocs.io" path="/icons/KivyMD.svg" alt="KivyMD Icon" className="absolute top-28 right-0"/>
+                  <FloatingItem link="https://nextjs.org/" path="/icons/NextJs.svg" alt="NextJs Icon" className="absolute bottom-45 left-14"/>
+                  <FloatingItem link="https://www.python.org/" path="/icons/Python.svg" alt="Python Icon" className="absolute top-35 right-25"/>
+                  <FloatingItem link="https://tailwindcss.com/" path="/icons/Tailwind.svg" alt="Tailwind Icon" className="absolute top-28 left-20"/>
+                  <FloatingItem link="https://www.typescriptlang.org/" path="/icons/Typescript.svg" alt="Typescript Icon" className="absolute top-10 right-32"/>
+                  <FloatingItem link="https://www.notion.so" path="/icons/Notion.svg" alt="Notion Icon" className="absolute top-10 left-25"/>
+                  <FloatingItem link="https://react.dev/" path="/icons/React.svg" alt="React Icon" className="absolute top-5 right-10"/>
+                  <Image src={Weslley} alt='Foto Pessoal' width={450} height={450} className=""/>
+                </div>
+            </div>
+          </section>
+        ) : (
+          <section id="Hero" className="relative lg:px-0 w-full h-auto py-12 px-10 justify-around items-center flex flex-col md:flex-row">
           <div className="w-128 text-center md:text-start flex flex-col gap-4">
             <h1 className="text-4xl text-[#243A69] font-bold block dark:hidden">DESENVOLVEDOR BACKEND</h1> 
             <h1 className="text-4xl text-[#5B88A5] font-bold hidden dark:block">DESENVOLVEDOR BACKEND</h1> 
@@ -15,16 +69,16 @@ export default function Hero () {
                 <p className="text-3xl text-center md:text-start font-semibold py-0.5">
                   Olá, sou Weslley Santiago
                 </p>
-                <p className="text-2xl font-poppins">
-                  Sou desenvolvedor backend com foco em Python. Tenho experiência em construir aplicações robustas usando Firebase para banco de dados e autenticação, além de desenvolver interfaces com Kivy para projetos desktop e mobile.
+                <p className="text-2xl font-merriweather">
+                  Desenvolvedor backend com foco em Python. Tenho experiência em construir aplicações robustas usando Firebase para banco de dados e autenticação, além de desenvolver interfaces com Kivy para projetos desktop e mobile.
                 </p>
                 <div className="flex flex-row md:justify-start justify-center gap-4">
-                  <ButtonType1 label="Projetos" link="#Projects"/>
-                  <ButtonType2 label="GitHub" link="https://www.github.com/WeslleySantiagoo"/>
+                  <ButtonType1 label="Projetos" scale="100"/>
+                  <ButtonType2 label="GitHub" link="https://www.github.com/WeslleySantiagoo" scale="100"/>
                 </div>
             </div>
           </div>
-          <div className="relative w-[450px] h-[450px] min-w-[450px] min-h-[450px] max-w-[450px] max-h-[450px]">
+          <div className="relative w-[450px] h-[450px] min-w-[450px] min-h-[450px] max-w-[450px] max-h-[450px] select-none">
             <FloatingItem link="https://developer.mozilla.org/en-US/docs/Web/CSS"path="/icons/CSS.svg" alt="CSS Icon" className="absolute top-10 left-0" />
             <FloatingItem link="https://www.figma.com" path="/icons/Figma.svg" alt="Figma Icon" className="absolute right-1 bottom-20" />
             <FloatingItem link="https://firebase.google.com" path="/icons/Firebase.svg" alt="Firebase Icon" className="absolute bottom-25 left-5" />
@@ -37,8 +91,11 @@ export default function Hero () {
             <FloatingItem link="https://www.typescriptlang.org/" path="/icons/Typescript.svg" alt="Typescript Icon" className="absolute top-10 right-32"/>
             <FloatingItem link="https://www.notion.so" path="/icons/Notion.svg" alt="Notion Icon" className="absolute top-10 left-25"/>
             <FloatingItem link="https://react.dev/" path="/icons/React.svg" alt="React Icon" className="absolute top-5 right-10"/>
-            <Image src={Weslley} alt='Foto Pessoal' width={450} height={450} className=""/>
+            <Image draggable={false} src={Weslley} alt='Foto Pessoal' width={450} height={450} className=""/>
           </div>
+          <ScrollDownIndicator className="dark:bg-none rounded-[40px] w-10 h-10 flex justify-center items-center border-gray-200 border-2"/>
         </section>
+        )}
+      </div>
     )
 }
